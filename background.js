@@ -10,26 +10,20 @@ function read_joy ()
 			parse_mail_number(this);
 		}
 	};
-	xhttp.open("GET", "https://www.joyclub.de/mein/", true)
+	xhttp.open("GET", "https://www.joyclub.de/clubmailv3/clubmail_auto_update", true)
 	xhttp.send();
 }
 
 function parse_mail_number(xml)
 {
-
-	var doc = document.implementation.createHTMLDocument("example");
-	doc.documentElement.innerHTML = xml.responseText;
-	
-	// console.log(xml);
-	// console.log(doc.documentElement.innerHTML);
-
-	let mails = doc.querySelector(".counter_badge");
-	let numbermails = mails.innerText;
-
-	// console.log(numbermails);
-
+	console.log(xml);
+	let obj = JSON.parse(xml.responseText);
+	console.log(obj);
+	let numbermails = obj.content.unread_message_count_total;
+	console.log(numbermails);
 	chrome.browserAction.setBadgeBackgroundColor({ color: [176, 0, 0, 125] });
-	chrome.browserAction.setBadgeText({text: (numbermails.toString())});
+	chrome.browserAction.setBadgeText({text: numbermails.toString()});
 }
 
+read_joy();
 setInterval(read_joy, 12000);
