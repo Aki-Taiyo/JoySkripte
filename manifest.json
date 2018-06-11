@@ -26,7 +26,7 @@
                        "matches": [
                                    "https://www.joyclub.de/clubmailv3/*"
                                    ],
-                       "js": ["JoyMails-Helper.js"],
+                       "js": ["JoyMails-Helper-Aki.js"],
                        "run_at": "document_idle"
                        },
                        {
@@ -37,10 +37,10 @@
                        "run_at": "document_idle"
                        }
                        ],
-	"background":{
-		"scripts":["background.js"]
-	},
-	"permissions": [
-		"https://www.joyclub.de/"
-	]
+    "background":{
+        "scripts":["background.js"]
+    },
+    "permissions": ["storage",
+                    "https://www.joyclub.de/"
+                    ]
 }
