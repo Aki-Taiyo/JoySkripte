@@ -6,7 +6,7 @@
 
 * für Chrome und Firefox
 
-## Fehlen in Github:
+## Fehlen in Github wegen Urheberrecht:
 * img/
 * img/favicon_mail.png
 * img/favicon.png
@@ -15,9 +15,9 @@
 * img/favicon64.png
 * img/favicon128.png
 
-Weil: sind das geklaute Joyclubicons:
-* https://www.joyclub.de/favicon.ico
-* https://www.joyclub.de/img/favicon_mail.ico
+Das sind die geklauten Joyclubicons:
+* https://joyclub.de/favicon.ico
+* https://joyclub.de/img/favicon_mail.ico
 * https://joyclub.de/img/favicon_update.ico
 * https://joyclub.de/img/favicon_notification.ico
 
