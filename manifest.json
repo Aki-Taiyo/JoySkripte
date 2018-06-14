@@ -35,12 +35,23 @@
                                   ],
                        "js": ["sichtbarkeit.js"],
                        "run_at": "document_idle"
+                       },
+                       {
+					   "matches": [
+                                   "https://www.joyclub.de/*"
+                                  ],
+                       "js": ["cachekiller.js"],
+                       "run_at": "document_idle"
                        }
                        ],
     "background":{
         "scripts":["background.js"]
     },
     "permissions": ["storage",
-                    "https://www.joyclub.de/"
+                    "https://www.joyclub.de/",
+					"contextMenus",
+					"tabs",
+					"activeTab",
+					"notifications"
                     ]
 }
