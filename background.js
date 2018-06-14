@@ -2,7 +2,7 @@ let contextmenu_item = {
 	"id": "block_user",
 	"title": "Mitglied sperren",
 	"contexts": ["link"],
-	"targetUrlPatterns": ["https://www.joyclub.de/my/*.html"]
+	"targetUrlPatterns": ["https://www.joyclub.de/my/*.*.html"]
 }
 
 var cache_killer = "";
@@ -24,7 +24,6 @@ chrome.contextMenus.onClicked.addListener(function block_user (clickData)
 		request.open("POST", "https://www.joyclub.de/kontakte", true);
 
 		let formDaten = new FormData();
-		// let cache_killer = document.getElementsByName("cache_killer")[0].value;
 		formDaten.append("cache_killer", response.cache_killer);
 		formDaten.append("user_fav_request", "save");
 		// linkUrl parsen (7-stellige Benutzernummer wird benötigt)
@@ -41,13 +40,13 @@ chrome.contextMenus.onClicked.addListener(function block_user (clickData)
 		
 		request.send(formDaten);
 		
-		// reload notwendig, um änderungen zu sehen
-		// location.reload();
+		// Usernamen aus URL auslesen
+		let username = /[0-9]{7}\.(.*?).\./.exec(clickData.linkUrl);
 		
 		var opt = {
 			type: "basic",
 			title: "Joyclub-Skripte",
-			message: "Mitglied wurde gesperrt",
+			message: "Mitglied " + username[1] + " wurde gesperrt",
 			iconUrl: "img/favicon128.png"
 		}
 		chrome.notifications.create("note_user_blocked", opt);
