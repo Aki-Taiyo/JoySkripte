@@ -42,7 +42,14 @@
                                   ],
                        "js": ["cachekiller.js"],
                        "run_at": "document_idle"
-                       }
+                       },
+                       {
+					   "matches": [
+                                   "https://www.joyclub.de/event/*"
+                                  ],
+                       "js": ["event.js"],
+                       "run_at": "document_idle"
+                       }					   
                        ],
     "background":{
         "scripts":["background.js"]

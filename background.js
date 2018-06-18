@@ -72,7 +72,15 @@ function aktualisiere_extension_anzeige(obj)
 	let numbermails = obj.content.unread_message_count_total;
     
 	chrome.browserAction.setBadgeBackgroundColor({ color: [176, 0, 0, 125] });
-	chrome.browserAction.setBadgeText({text: numbermails.toString()});
+	// Badge nur anzeigen, wenn auch Mails da sind 
+	if(numbermails > 0)
+	{
+		chrome.browserAction.setBadgeText({text: numbermails.toString()});
+	}
+	else
+	{
+		chrome.browserAction.setBadgeText({text: ""});
+	}
     
     if (obj.content.new_state) chrome.browserAction.setIcon({path : "img/favicon_mail.png"});
     else chrome.browserAction.setIcon({path : "img/favicon.png"});
